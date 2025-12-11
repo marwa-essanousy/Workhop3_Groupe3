@@ -35,14 +35,6 @@ function addNumbers(a, b) {
 }
 
 
-try {
-  throw new Error("test error");
-} catch (e) {
-  console.error("An error occurred in test block:", e.message);
-}
-
-
-
 app.listen(port, () => {
   console.log(`Node Sonar API listening on port ${port}`);
 });
