@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_HOST_URL = 'http://sonarqube:9000'
+        SONAR_HOST_URL = 'http://localhost:9000'
         SONAR_TOKEN    = 'sqp_88eb03682b0d3a1749d1018618baee70a826b4bf'   // ❗better to use Jenkins credentials later
     }
 
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     bat """
-                    sonar-scanner ^
+                  C:\\sonar-scanner\\bin\\sonar-scanner.bat ^
                   -Dsonar.host.url=%SONAR_HOST_URL% ^
                   -Dsonar.login=%SONAR_TOKEN%
 """
