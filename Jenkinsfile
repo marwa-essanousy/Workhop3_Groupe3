@@ -4,7 +4,6 @@ pipeline {
     environment {
         SONAR_HOST_URL = 'http://sonarqube:9000'
         SONAR_TOKEN    = 'sqp_88eb03682b0d3a1749d1018618baee70a826b4bf'   // ❗better to use Jenkins credentials later
-        SONAR_NETWORK  = 'sonarqube_sonarnet'
     }
 
     stages {
@@ -31,7 +30,9 @@ pipeline {
             steps {
                 script {
                     bat """
-docker run --rm -e SONAR_HOST_URL="${SONAR_HOST_URL}" -e SONAR_TOKEN="${SONAR_TOKEN}" -v "%CD%:/usr/src" --network ${SONAR_NETWORK} sonarsource/sonar-scanner-cli
+                    sonar-scanner ^
+                  -Dsonar.host.url=%SONAR_HOST_URL% ^
+                  -Dsonar.login=%SONAR_TOKEN%
 """
                 }
             }
