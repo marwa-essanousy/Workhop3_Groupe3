@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/marwa-essanousy/DevSecOps.git'
+                    url: 'https://github.com/marwa-essanousy/Workhop3_Groupe3.git'
             }
         }
 
